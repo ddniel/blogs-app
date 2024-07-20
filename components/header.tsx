@@ -2,6 +2,7 @@
 import { signOut } from "next-auth/react";
 
 import Link from "next/link";
+import { useState } from "react";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function Header() {
@@ -21,7 +22,9 @@ export default function Header() {
           size={30}
           className="text-neutral-500 cursor-pointer hover:text-foreground"
         />
+
         <button onClick={() => signOut({ callbackUrl: "/" })}>Logout</button>
+
         <Link href="/auth/signin">Login</Link>
       </div>
     </div>

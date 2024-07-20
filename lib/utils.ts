@@ -1,6 +1,10 @@
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+export default function formatDate(rawDate) {
+  const date = new Date(rawDate);
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  };
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return date.toLocaleDateString(undefined, options);
 }
