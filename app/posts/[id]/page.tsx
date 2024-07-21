@@ -1,3 +1,4 @@
+import SideBar from "@/components/sideBar";
 import { getPostById } from "@/lib/data";
 import formatDate from "@/lib/utils";
 import Link from "next/link";
@@ -6,13 +7,22 @@ export default async function Post({ params }) {
   const post = await getPostById(params.id);
 
   return (
-    <section>
-      <article>
-        <h1>{post.title}</h1>
-        <p>{formatDate(post.created_at)}</p>
-        <p>{post.content}</p>
+    <section className="px-28 flex gap-10">
+      <article className="w-[70%]">
+        <div>
+          <Link href={"/"} className="cursor-pointer">
+            ⇦ Back to Home
+          </Link>
+        </div>
+        <div className="flex flex-col gap-4">
+          <h1 className="text-3xl mt-10">{post.title}</h1>
+          <p className="italic ">
+            Published date: {formatDate(post.created_at)}
+          </p>
+          <p className="mt-10">{post.content}</p>
+        </div>
       </article>
-      <Link href={"/"}>Back to Home</Link>
+      <SideBar />
     </section>
   );
 }
