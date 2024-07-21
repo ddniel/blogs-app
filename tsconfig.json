@@ -27,7 +27,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/api/auth/[...nextauth]/route.js",
-    "app/api/posts/route.js"
+    "app/api/posts/route.js",
+    "middleware.ts"
   ],
   "exclude": ["node_modules"]
 }
