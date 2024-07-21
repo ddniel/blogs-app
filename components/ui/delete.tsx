@@ -1,0 +1,24 @@
+"use client";
+
+import { deletePost } from "@/lib/actions";
+import { useRouter } from "next/navigation";
+
+export default function Delete({ id }) {
+  const router = useRouter();
+
+  const handleDelete = async () => {
+    const result = await deletePost(id);
+    if (result.message === "OK") {
+      router.push("/");
+      router.refresh();
+    }
+  };
+  return (
+    <button
+      onClick={handleDelete}
+      className="px-3 py-1 border border-neutral-200 rounded-xl hover:bg-foreground hover:text-background"
+    >
+      Delete
+    </button>
+  );
+}

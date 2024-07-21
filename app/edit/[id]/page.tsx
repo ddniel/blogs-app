@@ -5,7 +5,7 @@ export default async function page({ params }) {
   const post = await getPostById(params.id);
   return (
     <div>
-      <EditForm id={post.id} title={post.title} content={post.content} />
+      <EditForm id={params.id} title={post.title} content={post.content} />
     </div>
   );
 }

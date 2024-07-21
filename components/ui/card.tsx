@@ -1,7 +1,9 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import formatDate from "@/lib/utils";
-import { getServerSession } from "next-auth";
 import Link from "next/link";
+
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import Delete from "./delete";
 
 export default async function Card({ id, title, content, date }) {
   const session = await getServerSession(authOptions);
@@ -16,9 +18,10 @@ export default async function Card({ id, title, content, date }) {
       </span>
       <div className="self-end absolute bottom-6 flex gap-1">
         {session && (
-          <button className="px-3 py-1 border border-neutral-200 rounded-xl hover:bg-foreground hover:text-background">
-            Delete
-          </button>
+          // <button className="px-3 py-1 border border-neutral-200 rounded-xl hover:bg-foreground hover:text-background">
+          //   Delete
+          // </button>
+          <Delete id={id} />
         )}
 
         {session && (

@@ -1,15 +1,16 @@
 "use client";
 
-import { updatePost } from "@/lib/actions";
+import { createPost } from "@/lib/actions";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function EditForm({ id, title, content }) {
+export default function CreateForm() {
   const [formData, setFormData] = useState({
-    title: title,
-    content: content,
+    title: "",
+    content: "",
   });
+
   const router = useRouter();
 
   const handleInputChange = (e) => {
@@ -18,9 +19,9 @@ export default function EditForm({ id, title, content }) {
   };
 
   const handleFormSubmit = async () => {
-    const result = await updatePost(id, formData.title, formData.content);
+    const result = await createPost(formData.title, formData.content);
 
-    if (result.message === "OK") {
+    if (result.message === "Post created succesfully.") {
       router.push("/");
       router.refresh();
     }
@@ -33,12 +34,14 @@ export default function EditForm({ id, title, content }) {
           type="text"
           name="title"
           id="title"
+          placeholder="Post title..."
           value={formData.title}
           onChange={handleInputChange}
         />
         <textarea
           name="content"
           id="content"
+          placeholder="Post content..."
           value={formData.content}
           onChange={handleInputChange}
         ></textarea>

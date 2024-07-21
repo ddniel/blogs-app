@@ -26,6 +26,13 @@ export default function Header() {
         <h2 className="text-xxl font-bold">SOMEBODY</h2>
       </Link>
       <div className="flex gap-5">
+        {session && (
+          <Link href="/create">
+            <button className="px-3 py-1 border border-neutral-200 rounded-xl hover:bg-foreground hover:text-background">
+              + Create Post
+            </button>
+          </Link>
+        )}
         <FaFacebookSquare
           size={30}
           className="text-neutral-500 cursor-pointer hover:text-foreground"
