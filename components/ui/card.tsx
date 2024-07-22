@@ -12,7 +12,7 @@ export default async function Card({ id, title, content, date }) {
     <div className="w-[400px] h-[350px] flex flex-col border border-neutral-200 rounded-xl px-10 py-5 gap-2 relative">
       <h3 className="text-2xl">{title}</h3>
       <div className="h-[2px] w-full bg-neutral-100"></div>
-      <p>{content.substring(0, 250)}...</p>
+      <p>{content.slice(0, 170)}...</p>
       <span className="text-xs italic text-neutral-500 mt-4">
         Published: {formatDate(date)}
       </span>

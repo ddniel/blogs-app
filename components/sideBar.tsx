@@ -8,7 +8,7 @@ export default function SideBar() {
           <ul>
             <li>This is a post</li>
             <li>Another cool post</li>
-            <li>I'm a post</li>
+            <li>Im a post</li>
             <li>Post re</li>
           </ul>
         </div>
