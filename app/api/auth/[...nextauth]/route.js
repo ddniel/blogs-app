@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { query } from "../../../../lib/db";
+import { verifyPassword } from "@/lib/auth";
 
 export const authOptions = {
   providers: [
@@ -21,7 +22,7 @@ export const authOptions = {
           throw new Error("No user found with the email");
         }
 
-        const isValid = password == user.password;
+        const isValid = await verifyPassword(password, user.password);
 
         if (!isValid) {
           throw new Error("Invalid password");

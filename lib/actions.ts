@@ -2,6 +2,22 @@
 
 import { query } from "./db";
 
+export async function createUser(
+  name: string,
+  email: string,
+  password: string
+) {
+  try {
+    const res = await query(
+      `INSERT INTO users (name, email, password) VALUES ($1, $2, $3)`,
+      [name, email, password]
+    );
+    return { message: "User added succesfully." };
+  } catch (error) {
+    return { message: "Unable to create user." };
+  }
+}
+
 export async function updatePost(id: string, title: string, content: string) {
   try {
     const res = await query(
