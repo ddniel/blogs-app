@@ -2,8 +2,8 @@ import formatDate from "@/lib/utils";
 import Link from "next/link";
 
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import Delete from "./delete";
+import { authOptions } from "@/lib/authOptions";
 
 export default async function Card({ id, title, content, date }) {
   const session = await getServerSession(authOptions);
