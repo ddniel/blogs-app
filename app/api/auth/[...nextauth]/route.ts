@@ -12,6 +12,9 @@ const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
+        if (!credentials) {
+          throw new Error("No credentials provided");
+        }
         const { email, password } = credentials;
         const result = await query("SELECT * FROM users WHERE email = $1", [
           email,
