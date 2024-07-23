@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { query } from "./db";
 
 export async function createUser(
@@ -36,6 +37,7 @@ export async function createPost(title: string, content: string) {
       "INSERT INTO posts (title, content) VALUES ($1, $2)",
       [title, content]
     );
+    revalidatePath("/");
     return { message: "Post created succesfully." };
   } catch (error) {
     return { message: "Unable to create post." };
