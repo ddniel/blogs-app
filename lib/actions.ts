@@ -25,6 +25,7 @@ export async function updatePost(id: number, title: string, content: string) {
       `UPDATE posts SET title=$1, content=$2 WHERE id=$3`,
       [title, content, id]
     );
+    revalidatePath("/");
     return { message: "OK" };
   } catch (error) {
     return { message: "Unable to update" };
@@ -47,6 +48,7 @@ export async function createPost(title: string, content: string) {
 export async function deletePost(id: number) {
   try {
     const res = await query("DELETE FROM posts WHERE id=$1", [id]);
+    revalidatePath("/");
     return { message: "OK" };
   } catch (error) {
     return { message: "Unable to delete post." };
