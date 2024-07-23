@@ -3,22 +3,30 @@
 import { createPost } from "@/lib/actions";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
+
+interface FormData {
+  title: string;
+  content: string;
+}
 
 export default function CreateForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     title: "",
     content: "",
   });
 
   const router = useRouter();
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = async (e: FormEvent) => {
+    e.preventDefault();
     const result = await createPost(formData.title, formData.content);
 
     if (result.message === "Post created succesfully.") {
@@ -30,7 +38,7 @@ export default function CreateForm() {
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <form
-        action={handleFormSubmit}
+        onSubmit={handleFormSubmit}
         className="flex flex-col border border-neutral-200 rounded-xl px-10 py-5 w-[800px] gap-8"
       >
         <h1 className="text-2xl">📑 Create Post</h1>

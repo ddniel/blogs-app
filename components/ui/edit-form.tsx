@@ -3,21 +3,31 @@
 import { updatePost } from "@/lib/actions";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
-export default function EditForm({ id, title, content }) {
+interface EditFormProps {
+  id: string;
+  title: string;
+  content: string;
+}
+
+export default function EditForm({ id, title, content }: EditFormProps) {
   const [formData, setFormData] = useState({
     title: title,
     content: content,
   });
   const router = useRouter();
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
     const result = await updatePost(id, formData.title, formData.content);
 
     if (result.message === "OK") {
@@ -29,7 +39,7 @@ export default function EditForm({ id, title, content }) {
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <form
-        action={handleFormSubmit}
+        onSubmit={handleFormSubmit}
         className="flex flex-col border border-neutral-200 rounded-xl px-10 py-5 w-[800px] gap-8"
       >
         <h1 className="text-2xl">📝 Edit Post</h1>
