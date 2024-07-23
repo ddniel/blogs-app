@@ -1,8 +1,9 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import { verifyPassword } from "@/lib/auth";
 import { query } from "./db";
+import { NextAuthOptions } from "next-auth";
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -37,4 +38,5 @@ export const authOptions = {
   pages: {
     signIn: "/auth/signin",
   },
+  secret: process.env.NEXTAUTH_SECRET,
 };

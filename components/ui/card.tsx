@@ -3,11 +3,10 @@ import Link from "next/link";
 
 import { getServerSession } from "next-auth";
 import Delete from "./delete";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function Card({ id, title, content, date }) {
-  const session = await getServerSession(authOptions);
-
+  // const session = await getServerSession();
+  const session = true;
   return (
     <div className="w-[400px] h-[350px] flex flex-col border border-neutral-200 rounded-xl px-10 py-5 gap-2 relative">
       <h3 className="text-2xl">{title}</h3>
