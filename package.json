@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "seed": "node -r ./scripts/seed.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "seed": "node -r ./scripts/seed.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
