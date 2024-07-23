@@ -1,7 +1,7 @@
 import formatDate from "@/lib/utils";
 import Link from "next/link";
-
 import Delete from "./delete";
+import { isLoggedIn } from "@/lib/auth";
 
 interface CardProps {
   id: number;
@@ -12,7 +12,8 @@ interface CardProps {
 
 export default async function Card({ id, title, content, date }: CardProps) {
   // const session = await getServerSession();
-  const session = true;
+  const session = await isLoggedIn();
+
   return (
     <div className="w-[400px] h-[350px] flex flex-col border border-neutral-200 rounded-xl px-10 py-5 gap-2 relative">
       <h3 className="text-2xl">{title}</h3>

@@ -13,7 +13,6 @@ export default function Delete({ id }: DeleteProps) {
   const handleDelete = async () => {
     const result = await deletePost(id);
     if (result.message === "OK") {
-      router.push("/");
       router.refresh();
     }
   };
