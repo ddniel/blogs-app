@@ -31,7 +31,7 @@ export default async function Card({ id, title, content, date }: CardProps) {
         )}
 
         {session && (
-          <Link href={`/edit/${id}`}>
+          <Link href={`/posts/edit/${id}`}>
             <button className="px-3 py-1 border border-neutral-200 rounded-xl hover:bg-foreground hover:text-background">
               Edit
             </button>

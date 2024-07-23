@@ -2,6 +2,7 @@ import SideBar from "@/components/sideBar";
 import { getPostById } from "@/lib/data";
 import formatDate from "@/lib/utils";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 interface PostProps {
   params: {
@@ -11,6 +12,10 @@ interface PostProps {
 
 export default async function Post({ params }: PostProps) {
   const post = await getPostById(params.id);
+
+  if (!post) {
+    notFound();
+  }
 
   return (
     <section className="px-28 flex gap-10">

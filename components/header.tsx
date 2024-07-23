@@ -27,7 +27,7 @@ export default function Header() {
       </Link>
       <div className="flex gap-5">
         {session && (
-          <Link href="/create">
+          <Link href="/posts/create">
             <button className="px-3 py-1 border border-neutral-200 rounded-xl hover:bg-foreground hover:text-background">
               + Create Post
             </button>
