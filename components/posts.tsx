@@ -1,8 +1,15 @@
 import { getAllPosts } from "@/lib/data";
 import Card from "./ui/card";
 
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+  created_at: Date;
+}
+
 export default async function Posts() {
-  const posts = await getAllPosts();
+  const posts: Post[] = await getAllPosts();
 
   return (
     <div className="grid grid-cols-3 gap-5 py-32 px-20">
