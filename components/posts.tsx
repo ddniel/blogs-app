@@ -13,9 +13,9 @@ export default async function Posts() {
 
   return (
     <div className="grid grid-cols-3 gap-5 py-32 px-20">
-      {posts.map((post, index) => {
+      {posts.map((post, id) => {
         return (
-          <div key={index}>
+          <div key={id}>
             <Card
               id={post.id}
               title={post.title}

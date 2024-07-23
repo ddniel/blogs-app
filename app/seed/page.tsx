@@ -4,6 +4,8 @@ export default async function page() {
   const users = await seedUsers();
   const posts = await seedPosts();
 
+  console.log(users, posts);
+
   if (
     users?.message === "Users seeded succesfully." &&
     posts?.message === "Seeded dummy posts succesfully."

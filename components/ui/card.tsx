@@ -1,7 +1,6 @@
 import formatDate from "@/lib/utils";
 import Link from "next/link";
 
-import { getServerSession } from "next-auth";
 import Delete from "./delete";
 
 interface CardProps {
