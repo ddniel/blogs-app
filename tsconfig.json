@@ -28,7 +28,8 @@
     ".next/types/**/*.ts",
     "app/api/auth/[...nextauth]/route.ts",
     "app/api/posts/route.js",
-    "middleware.ts"
+    "middleware.ts",
+    "scripts/seed.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,10 +1,10 @@
-const testUser = {
+export const testUser = {
   name: "test",
   email: "test@test.com",
   password: "test123",
 };
 
-const dummyPosts = [
+export const dummyPosts = [
   {
     title: "The Beauty of Nature",
     content: `Nature is a source of endless inspiration and wonder. From towering mountains to serene lakes, every element of the natural world has its own unique beauty. The diversity of landscapes, from dense forests to arid deserts, showcases the incredible variety and adaptability of life on Earth. The changing seasons bring new colors and life, reminding us of the cyclical nature of existence and the interconnectedness of all living things. One of the most fascinating aspects of nature is its ability to evoke a sense of peace and tranquility. Whether it's the gentle rustling of leaves in the wind or the rhythmic crashing of ocean waves, nature has a way of calming the mind and rejuvenating the spirit. Many people find solace in spending time outdoors, whether through hiking, camping, or simply enjoying a walk in the park. The natural world provides a respite from the hustle and bustle of modern life, offering a space for reflection and renewal. Moreover, nature plays a crucial role in our ecosystem. Plants produce the oxygen we breathe, and various species contribute to the balance of our environment. Preserving natural habitats is essential for maintaining biodiversity and ensuring the health of our planet. The conservation of forests, wetlands, and oceans helps protect countless species from extinction and preserves the delicate balance of our ecosystem. By protecting nature, we also safeguard our own well-being and the future of generations to come. The beauty of nature is not just in its visual splendor, but in its profound impact on our lives and the health of our planet.`,
@@ -32,8 +32,3 @@ const dummyPosts = [
     author_id: 1,
   },
 ];
-
-module.exports = {
-  testUser,
-  dummyPosts,
-};

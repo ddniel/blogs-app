@@ -1,13 +1,8 @@
-const { dummyPosts, testUser } = require("../lib/seedData");
-const bcrypt = require("bcryptjs");
-const { Pool } = require("pg");
-require("dotenv").config();
+import bcrypt from "bcryptjs";
+import { pool } from "@/lib/db";
+import { dummyPosts, testUser } from "@/lib/seedData";
 
-const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL,
-});
-
-async function seedUsers() {
+export async function seedUsers() {
   try {
     //Create user table
     const createTable = await pool.query(`
@@ -35,7 +30,7 @@ async function seedUsers() {
   }
 }
 
-async function seedPosts() {
+export async function seedPosts() {
   try {
     const createTable = await pool.query(`CREATE TABLE IF NOT EXISTS posts (
   id SERIAL PRIMARY KEY,
@@ -63,17 +58,3 @@ async function seedPosts() {
     console.log("Error seeding posts.", error);
   }
 }
-
-async function main() {
-  try {
-    await seedUsers();
-    await seedPosts();
-  } catch (error) {
-    console.error("Error in seeding:", error);
-  } finally {
-    await pool.end();
-    console.log("Database connection closed.");
-  }
-}
-
-main();
