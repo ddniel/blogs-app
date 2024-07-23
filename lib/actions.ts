@@ -42,7 +42,7 @@ export async function createPost(title: string, content: string) {
   }
 }
 
-export async function deletePost(id: string) {
+export async function deletePost(id: number) {
   try {
     const res = await query("DELETE FROM posts WHERE id=$1", [id]);
     return { message: "OK" };

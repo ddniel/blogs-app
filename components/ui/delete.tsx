@@ -3,7 +3,11 @@
 import { deletePost } from "@/lib/actions";
 import { useRouter } from "next/navigation";
 
-export default function Delete({ id }) {
+interface DeleteProps {
+  id: number;
+}
+
+export default function Delete({ id }: DeleteProps) {
   const router = useRouter();
 
   const handleDelete = async () => {
