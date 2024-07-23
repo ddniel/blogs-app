@@ -1,8 +1,5 @@
-import CredentialsProvider from "next-auth/providers/credentials";
-import { verifyPassword } from "@/lib/auth";
-import NextAuth from "next-auth";
-import { query } from "@/lib/db";
 import { authOptions } from "@/lib/authOptions";
+import NextAuth from "next-auth";
 
 // import { NextAuthOptions } from "next-auth";
 
