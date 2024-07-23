@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { getServerSession } from "next-auth";
 import Delete from "./delete";
-import { authOptions } from "@/lib/authOptions";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function Card({ id, title, content, date }) {
   const session = await getServerSession(authOptions);

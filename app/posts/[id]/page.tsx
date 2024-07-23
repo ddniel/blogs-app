@@ -16,7 +16,7 @@ export default async function Post({ params }) {
         </div>
         <div className="flex flex-col gap-4">
           <h1 className="text-3xl mt-10">{post.title}</h1>
-          <p className="italic ">
+          <p className="italic text-sm text-[#959595]">
             Published date: {formatDate(post.created_at)}
           </p>
           <p className="mt-10">{post.content}</p>
