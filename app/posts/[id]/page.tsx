@@ -3,7 +3,13 @@ import { getPostById } from "@/lib/data";
 import formatDate from "@/lib/utils";
 import Link from "next/link";
 
-export default async function Post({ params }) {
+interface PostProps {
+  params: {
+    id: number;
+  };
+}
+
+export default async function Post({ params }: PostProps) {
   const post = await getPostById(params.id);
 
   return (

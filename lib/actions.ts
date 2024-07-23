@@ -18,7 +18,7 @@ export async function createUser(
   }
 }
 
-export async function updatePost(id: string, title: string, content: string) {
+export async function updatePost(id: number, title: string, content: string) {
   try {
     const res = await query(
       `UPDATE posts SET title=$1, content=$2 WHERE id=$3`,

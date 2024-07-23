@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 interface EditFormProps {
-  id: string;
+  id: number;
   title: string;
   content: string;
 }

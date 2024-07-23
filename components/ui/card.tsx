@@ -4,7 +4,14 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import Delete from "./delete";
 
-export default async function Card({ id, title, content, date }) {
+interface CardProps {
+  id: number;
+  title: string;
+  content: string;
+  date: string;
+}
+
+export default async function Card({ id, title, content, date }: CardProps) {
   // const session = await getServerSession();
   const session = true;
   return (
