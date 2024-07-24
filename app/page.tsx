@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import Posts from "@/components/posts";
+import { Suspense } from "react";
 
 export default function Home({
   searchParams,
@@ -12,7 +13,9 @@ export default function Home({
     <main className="flex min-h-screen flex-col">
       <Header />
       <section>
-        <Posts searchInput={searchParams?.query || ""} />
+        <Suspense>
+          <Posts searchInput={searchParams?.query || ""} />
+        </Suspense>
       </section>
     </main>
   );
