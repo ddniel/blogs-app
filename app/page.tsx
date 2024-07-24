@@ -13,9 +13,7 @@ export default function Home({
     <main className="flex min-h-screen flex-col">
       <Header />
       <section>
-        <Suspense>
-          <Posts searchInput={searchParams?.query || ""} />
-        </Suspense>
+        <Posts searchInput={searchParams?.query || ""} />
       </section>
     </main>
   );

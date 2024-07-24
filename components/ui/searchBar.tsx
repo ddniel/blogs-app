@@ -3,6 +3,7 @@
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { IoSearch } from "react-icons/io5";
+import { Suspense } from "react";
 
 export default function SearchBar() {
   const searchParams = useSearchParams();
