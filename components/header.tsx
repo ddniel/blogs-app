@@ -6,6 +6,7 @@ import { isLoggedIn } from "../lib/auth";
 import Link from "next/link";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import SearchBar from "./ui/searchBar";
 
 export default function Header() {
   const [session, setSession] = useState(false);
@@ -25,6 +26,7 @@ export default function Header() {
       <Link href="/">
         <h2 className="text-xxl font-bold">SOMEBODY</h2>
       </Link>
+      <SearchBar />
       <div className="flex gap-5">
         {session && (
           <Link href="/posts/create">
