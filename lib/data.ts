@@ -13,3 +13,17 @@ export async function getPostById(id: number) {
 
   return post.rows[0];
 }
+
+export async function getFilteredPosts(search: string) {
+  const searchQuery = `%${search.toLocaleLowerCase()}%`;
+  try {
+    const posts = await query(
+      "SELECT * FROM posts WHERE LOWER(title) LIKE $1",
+      [searchQuery]
+    );
+
+    return posts.rows;
+  } catch (error) {
+    console.error("Database Error:", error);
+  }
+}
