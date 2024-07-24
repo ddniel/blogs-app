@@ -11,12 +11,10 @@ export default function Home({
 }) {
   return (
     <main className="flex min-h-screen flex-col">
-      <Suspense>
-        <Header />
-        <section>
-          <Posts searchInput={searchParams?.query || ""} />
-        </section>
-      </Suspense>
+      <Header />
+      <section>
+        <Posts searchInput={searchParams?.query || ""} />
+      </section>
     </main>
   );
 }
