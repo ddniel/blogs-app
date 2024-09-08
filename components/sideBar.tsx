@@ -1,4 +1,9 @@
-export default function SideBar() {
+import { getAllPosts } from "@/lib/data";
+import Link from "next/link";
+
+export default async function SideBar() {
+  const posts = await getAllPosts();
+
   return (
     <div className="flex flex-col border w-[30%] border-neutral-200 rounded-xl px-8 py-5 mt-10">
       <div>
@@ -6,10 +11,26 @@ export default function SideBar() {
         <hr className="mt-2 mb-4" />
         <div>
           <ul>
-            <li>This is a post</li>
-            <li>Another cool post</li>
-            <li>Im a post</li>
-            <li>Post re</li>
+            <li>
+              <Link className="hover:underline" href={`/posts/${posts[0].id}`}>
+                {posts[0].title}
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:underline" href={`/posts/${posts[1].id}`}>
+                {posts[1].title}
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:underline" href={`/posts/${posts[2].id}`}>
+                {posts[2].title}
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:underline" href={`/posts/${posts[3].id}`}>
+                {posts[3].title}
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
