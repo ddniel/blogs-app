@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import Home from "../app/page";
+import { describe, expect, test } from "@jest/globals";
 
 describe("Page", () => {
   it("renders a heading", () => {
