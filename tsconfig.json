@@ -29,7 +29,8 @@
     "app/api/auth/[...nextauth]/route.ts",
     "app/api/posts/route.js",
     "middleware.ts",
-    "scripts/seed.js"
+    "scripts/seed.js",
+    "__tests__/card.test.jsx"
   ],
   "exclude": ["node_modules"]
 }

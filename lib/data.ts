@@ -3,7 +3,7 @@
 import { query } from "./db";
 
 export async function getAllPosts() {
-  const posts = await query("SELECT * from posts");
+  const posts = await query("SELECT * from posts ORDER BY created_at DESC");
 
   return posts.rows;
 }
@@ -18,7 +18,7 @@ export async function getFilteredPosts(search: string) {
   const searchQuery = `%${search.toLocaleLowerCase()}%`;
   try {
     const posts = await query(
-      "SELECT * FROM posts WHERE LOWER(title) LIKE $1",
+      "SELECT * FROM posts WHERE LOWER(title) LIKE $1 ORDER BY created_at DESC",
       [searchQuery]
     );
 

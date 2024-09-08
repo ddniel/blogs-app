@@ -1,4 +1,4 @@
-import { getAllPosts, getFilteredPosts } from "@/lib/data";
+import { getFilteredPosts } from "@/lib/data";
 import Card from "./ui/card";
 import { useSearchParams } from "next/navigation";
 

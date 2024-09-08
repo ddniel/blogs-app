@@ -23,12 +23,7 @@ export default async function Card({ id, title, content, date }: CardProps) {
         Published: {formatDate(date)}
       </span>
       <div className="self-end absolute bottom-6 flex gap-1">
-        {session && (
-          // <button className="px-3 py-1 border border-neutral-200 rounded-xl hover:bg-foreground hover:text-background">
-          //   Delete
-          // </button>
-          <Delete id={id} />
-        )}
+        {session && <Delete id={id} />}
 
         {session && (
           <Link href={`/posts/edit/${id}`}>
