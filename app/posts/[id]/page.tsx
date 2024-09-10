@@ -3,6 +3,8 @@ import { getPostById } from "@/lib/data";
 import formatDate from "@/lib/utils";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import DOMPurify from "isomorphic-dompurify";
+import Image from "next/image";
 
 interface PostProps {
   params: {
@@ -17,6 +19,15 @@ export default async function Post({ params }: PostProps) {
     notFound();
   }
 
+  const formattedContent = await post.content
+    .split("\n")
+    .map(
+      (paragraph: string) => `<p>${paragraph ? paragraph.trim() : "<br />"}</p>`
+    )
+    .join("");
+
+  const cleanContent = await DOMPurify.sanitize(formattedContent);
+
   return (
     <section className="px-28 flex gap-10">
       <article className="w-[70%]">
@@ -30,7 +41,20 @@ export default async function Post({ params }: PostProps) {
           <p className="italic text-sm text-[#959595]">
             Published date: {formatDate(post.created_at)}
           </p>
-          <p className="mt-10">{post.content}</p>
+          {post.image_url && (
+            <Image
+              src={post.image_url}
+              priority={false}
+              alt={post.title}
+              width={800}
+              height={500}
+              className="w-full h-[500px] object-cover rounded-sm"
+            />
+          )}
+          <div
+            className="mt-10"
+            dangerouslySetInnerHTML={{ __html: cleanContent }}
+          ></div>
         </div>
       </article>
       <SideBar />
