@@ -27,7 +27,7 @@ export default function Header() {
     <div
       className={`${
         openMenu && "backdrop-blur-xl"
-      } fixed w-full z-10 backdrop-blur-sm text-foreground sm:h-20  px-10  border-b-2`}
+      } sm:fixed w-full z-10 backdrop-blur-sm text-foreground sm:h-20  px-10  border-b-2`}
     >
       <div className="flex justify-between items-center h-20">
         <Link href="/">

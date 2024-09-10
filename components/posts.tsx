@@ -21,7 +21,7 @@ export default async function Posts({ searchInput }: { searchInput: string }) {
   }
 
   return (
-    <div className="grid sm:grid-cols-3 gap-5 py-32 sm:px-20 w-full">
+    <div className="grid sm:grid-cols-3 gap-5 py-10 sm:py-32 sm:px-20 w-full">
       {posts.map((post, id) => {
         return (
           <div key={id}>

@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <main className="min-h-screen relative">
       <Header />
-      <section className="py-32">{children}</section>
+      <section className="py-10 sm:py-32">{children}</section>
       <Footer />
     </main>
   );
