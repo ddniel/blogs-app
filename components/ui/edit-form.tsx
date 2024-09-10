@@ -87,7 +87,7 @@ export default function EditForm({
     <div className="w-full min-h-screen flex items-center justify-center">
       <form
         onSubmit={handleFormSubmit}
-        className="flex flex-col border border-neutral-200 rounded-xl px-10 py-5 w-[800px] gap-8"
+        className="flex flex-col border border-neutral-200 rounded-xl px-2 sm:px-10 py-5 w-[800px] gap-8"
       >
         <h1 className="text-2xl">📝 Edit Post</h1>
 
@@ -105,7 +105,7 @@ export default function EditForm({
           type="file"
           accept="image/*"
           onChange={handleImageChange}
-          className="w-full border border-neutral-200 rounded-xl px-10 py-5"
+          className="w-full border border-neutral-200 rounded-xl px-2 sm:px-10 py-5"
         />
 
         {uploading && <p>Uploading new image...</p>}
@@ -116,14 +116,14 @@ export default function EditForm({
           id="title"
           value={formData.title}
           onChange={handleInputChange}
-          className="w-full border border-neutral-200 rounded-xl px-10 py-5"
+          className="w-full border border-neutral-200 rounded-xl px-4 sm:px-10 py-5"
         />
         <textarea
           name="content"
           id="content"
           value={formData.content}
           onChange={handleInputChange}
-          className="w-full h-[400px] border border-neutral-200 rounded-xl px-10 py-5 overflow-scroll"
+          className="w-full h-[400px] border border-neutral-200 rounded-xl px-4 sm:px-10 py-5 overflow-scroll"
         ></textarea>
         <div className="flex gap-4">
           <button
