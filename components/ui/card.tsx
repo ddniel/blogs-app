@@ -23,7 +23,7 @@ export default async function Card({
   const session = await isLoggedIn();
 
   return (
-    <div className="w-[400px] h-[460px] flex flex-col border border-neutral-200 rounded-xl px-10 py-5 gap-2 relative">
+    <div className="w-full sm:w-[400px] h-[460px] flex flex-col border border-neutral-200 sm:rounded-xl px-4 sm:px-10 py-5 gap-2 relative shadow-md">
       {image_url && (
         <Image
           src={image_url}

@@ -3,9 +3,8 @@
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { IoSearch } from "react-icons/io5";
-import { Suspense } from "react";
 
-export default function SearchBar() {
+export default function SearchBar({ className }: { className?: string }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -23,13 +22,15 @@ export default function SearchBar() {
   }, 300);
 
   return (
-    <div className="border border-neutral-200 rounded-xl px-2 py-1 flex w-[350px] items-center gap-1 ml-[200px]">
+    <div
+      className={`${className} border border-neutral-200 rounded-xl px-2 py-1 sm:flex w-[250px] md:w-[350px] items-center gap-1 sm:ml-8 xl:ml-[200px]`}
+    >
       <IoSearch />
       <input
         type="text"
         id="search"
         placeholder="Search posts..."
-        className="w-full outline-none bg-inherit"
+        className="w-full outline-none bg-inherit text-foreground placeholder:text-foreground"
         onChange={(e) => {
           handleSearch(e.target.value);
         }}

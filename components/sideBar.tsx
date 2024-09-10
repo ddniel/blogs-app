@@ -5,7 +5,7 @@ export default async function SideBar() {
   const posts = await getAllPosts();
 
   return (
-    <div className="flex flex-col border w-[30%] border-neutral-200 rounded-xl px-8 py-5 mt-10">
+    <div className="flex flex-col border border-neutral-200 rounded-xl px-8 py-5 mt-10">
       <div>
         <h2 className="text-xl">🎉 Latest</h2>
         <hr className="mt-2 mb-4" />

@@ -29,8 +29,8 @@ export default async function Post({ params }: PostProps) {
   const cleanContent = await DOMPurify.sanitize(formattedContent);
 
   return (
-    <section className="px-28 flex gap-10">
-      <article className="w-[70%]">
+    <section className="px-2 sm:px-16 flex flex-col md:flex-row gap-10">
+      <article className="md:w-[70%]">
         <div>
           <Link href={"/"} className="cursor-pointer">
             ⇦ Back to Home

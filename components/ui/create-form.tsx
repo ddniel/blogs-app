@@ -76,7 +76,7 @@ export default function CreateForm() {
     <div className="w-full h-screen flex items-center justify-center">
       <form
         onSubmit={handleFormSubmit}
-        className="flex flex-col border border-neutral-200 rounded-xl px-10 py-5 w-[800px] gap-8"
+        className="flex flex-col border border-neutral-200 rounded-xl px-2 sm:px-10 py-5 w-[800px] gap-8"
       >
         <h1 className="text-2xl">📑 Create Post</h1>
         <input
@@ -86,7 +86,7 @@ export default function CreateForm() {
           placeholder="Post title..."
           value={formData.title}
           onChange={handleInputChange}
-          className="w-full border border-neutral-200 rounded-xl px-10 py-5"
+          className="w-full border border-neutral-200 rounded-xl px-2 sm:px-10 py-5"
         />
         <textarea
           name="content"
@@ -94,13 +94,13 @@ export default function CreateForm() {
           placeholder="Post content..."
           value={formData.content}
           onChange={handleInputChange}
-          className="w-full h-[400px] border border-neutral-200 rounded-xl px-10 py-5 overflow-scroll"
+          className="w-full h-[400px] border border-neutral-200 rounded-xl px-2 sm:px-10 py-5 overflow-scroll"
         ></textarea>
         <input
           type="file"
           accept="image/*"
           onChange={handleImageChange}
-          className="w-full border border-neutral-200 rounded-xl px-10 py-5"
+          className="w-full border border-neutral-200 rounded-xl px-2 sm:px-10 py-5"
         />
         {uploading ? <p>Uploading image...</p> : null}
         <div className="flex gap-4">
