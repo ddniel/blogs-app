@@ -7,6 +7,7 @@ interface Post {
   title: string;
   content: string;
   created_at: Date;
+  image_url: string;
 }
 
 export default async function Posts({ searchInput }: { searchInput: string }) {
@@ -29,6 +30,7 @@ export default async function Posts({ searchInput }: { searchInput: string }) {
               title={post.title}
               content={post.content}
               date={post.created_at.toString()}
+              image_url={post.image_url}
             />
           </div>
         );

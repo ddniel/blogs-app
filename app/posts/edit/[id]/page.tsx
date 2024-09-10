@@ -16,7 +16,12 @@ export default async function page({ params }: PageProps) {
   }
   return (
     <div>
-      <EditForm id={params.id} title={post.title} content={post.content} />
+      <EditForm
+        id={params.id}
+        title={post.title}
+        content={post.content}
+        imageUrl={post.image_url}
+      />
     </div>
   );
 }

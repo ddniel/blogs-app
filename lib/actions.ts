@@ -19,11 +19,16 @@ export async function createUser(
   }
 }
 
-export async function updatePost(id: number, title: string, content: string) {
+export async function updatePost(
+  id: number,
+  title: string,
+  content: string,
+  imageUrl: string
+) {
   try {
     const res = await query(
-      `UPDATE posts SET title=$1, content=$2 WHERE id=$3`,
-      [title, content, id]
+      `UPDATE posts SET title=$1, content=$2, image_url=$3 WHERE id=$4`,
+      [title, content, imageUrl, id]
     );
     revalidatePath("/");
     return { message: "OK" };
@@ -32,11 +37,16 @@ export async function updatePost(id: number, title: string, content: string) {
   }
 }
 
-export async function createPost(title: string, content: string) {
+export async function createPost(
+  title: string,
+  content: string,
+  imageUrl: string
+) {
   try {
+    //INSERT data into the DB
     const res = await query(
-      "INSERT INTO posts (title, content) VALUES ($1, $2)",
-      [title, content]
+      "INSERT INTO posts (title, content, image_url) VALUES ($1, $2, $3)",
+      [title, content, imageUrl]
     );
     revalidatePath("/");
     return { message: "Post created succesfully." };
