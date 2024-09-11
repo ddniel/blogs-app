@@ -64,3 +64,23 @@ export async function deletePost(id: number) {
     return { message: "Unable to delete post." };
   }
 }
+
+export async function getLatestPosts() {
+  try {
+    const res = await query(
+      `SELECT * FROM posts ORDER BY created_at DESC LIMIT 4`
+    );
+    return res.rows;
+  } catch (error) {
+    console.error("Database Error:", error);
+  }
+}
+
+export async function getMostVisitedPosts() {
+  try {
+    const res = await query(`SELECT * FROM posts ORDER BY views DESC LIMIT 4`);
+    return res.rows;
+  } catch (error) {
+    console.error("Database Error:", error);
+  }
+}

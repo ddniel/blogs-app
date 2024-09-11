@@ -27,11 +27,11 @@ export default function Header() {
     <div
       className={`${
         openMenu && "backdrop-blur-xl"
-      } sm:fixed w-full z-10 backdrop-blur-sm text-foreground sm:h-20  px-10  border-b-2`}
+      } sm:fixed w-full z-10 backdrop-blur-sm text-foreground sm:h-20 border-b-2`}
     >
-      <div className="flex justify-between items-center h-20">
+      <div className="flex justify-between px-10 items-center h-20">
         <Link href="/">
-          <h2 className="text-xxl font-bold">SOMEBODY</h2>
+          <h1 className="text-xl font-bold">SOMEBODY</h1>
         </Link>
         <IoMenu
           className="sm:hidden text-3xl cursor-pointer"
@@ -64,7 +64,7 @@ export default function Header() {
       </div>
       {/* Smartphones Menu */}
       {openMenu && (
-        <div className="sm:hidden flex flex-col items-center py-4 gap-4">
+        <div className="sm:hidden flex flex-col items-center py-4 gap-4 border-t border-gray-200 ">
           {session ? (
             <button onClick={() => signOut({ callbackUrl: "/" })}>
               Logout

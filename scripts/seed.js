@@ -37,6 +37,7 @@ export async function seedPosts() {
   title VARCHAR(255) NOT NULL,
   content TEXT NOT NULL,
   image_url VARCHAR(255),
+  views INTEGER DEFAULT 0,
   author_id INTEGER REFERENCES users(id),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );`);

@@ -48,7 +48,7 @@ export default async function Post({ params }: PostProps) {
               alt={post.title}
               width={800}
               height={500}
-              className="w-full h-[500px] object-cover rounded-sm"
+              className="w-full h-[500px] object-cover"
             />
           )}
           <div
