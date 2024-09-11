@@ -1,6 +1,5 @@
-import { getFilteredPosts } from "@/lib/data";
+import { getLatestPosts } from "@/lib/actions";
 import Card from "./ui/card";
-import { useSearchParams } from "next/navigation";
 
 interface Post {
   id: number;
@@ -10,21 +9,17 @@ interface Post {
   image_url: string;
 }
 
-export default async function Posts({ searchInput }: { searchInput: string }) {
-  const search = searchInput || "";
-
-  // const posts: Post[] = await getAllPosts();
-  const posts: Post[] = await getFilteredPosts(search);
+export default async function LatestPosts() {
+  const posts: Post[] = await getLatestPosts();
 
   if (!posts || posts.length === 0) {
     return <div>No posts found.</div>;
   }
-
   return (
-    <>
-      <h2 className="mb-2 px-2">All Posts</h2>
+    <div>
+      <h2 className="mb-2">Latest Posts</h2>
       <hr />
-      <div className="grid sm:grid-cols-3 gap-5 w-full mt-4">
+      <div className="grid sm:grid-cols-2 gap-5 w-full mt-8">
         {posts.map((post, id) => {
           return (
             <div key={id}>
@@ -39,6 +34,6 @@ export default async function Posts({ searchInput }: { searchInput: string }) {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }

@@ -31,12 +31,12 @@ export default async function Card({
           priority={false}
           width={800}
           height={500}
-          className="w-full h-[200px] object-cover rounded-sm"
+          className="w-full h-[200px] object-cover sm:rounded-sm"
         />
       )}
       <h3 className="text-2xl">
-        {title.slice(0, 40)}
-        {title.length > 40 && "..."}
+        {title.slice(0, 42)}
+        {title.length > 42 && "..."}
       </h3>
 
       <div className="h-[2px] w-full bg-neutral-100"></div>

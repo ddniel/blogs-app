@@ -1,8 +1,16 @@
-import { getAllPosts } from "@/lib/data";
+import { getLatestPosts } from "@/lib/actions";
 import Link from "next/link";
 
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+  created_at: Date;
+  image_url: string;
+}
+
 export default async function SideBar() {
-  const posts = await getAllPosts();
+  const posts: Post[] = await getLatestPosts();
 
   return (
     <div className="flex flex-col border border-neutral-200 rounded-xl px-8 py-5 mt-10">
@@ -11,26 +19,15 @@ export default async function SideBar() {
         <hr className="mt-2 mb-4" />
         <div>
           <ul>
-            <li>
-              <Link className="hover:underline" href={`/posts/${posts[0].id}`}>
-                {posts[0].title}
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:underline" href={`/posts/${posts[1].id}`}>
-                {posts[1].title}
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:underline" href={`/posts/${posts[2].id}`}>
-                {posts[2].title}
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:underline" href={`/posts/${posts[3].id}`}>
-                {posts[3].title}
-              </Link>
-            </li>
+            {posts.map((post, id) => {
+              return (
+                <li key={id}>
+                  <Link className="hover:underline" href={`/posts/${post.id}`}>
+                    {post.title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
@@ -46,6 +43,9 @@ export default async function SideBar() {
             # tech
           </span>
         </div>
+      </div>
+      <div className="py-4">
+        <Link href={"/posts/all"}>All Posts</Link>
       </div>
     </div>
   );

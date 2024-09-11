@@ -9,6 +9,8 @@ export async function getAllPosts() {
 }
 
 export async function getPostById(id: number) {
+  await query(`UPDATE posts SET views = views + 1 WHERE id = $1`, [id]);
+
   const post = await query("SELECT * from posts WHERE id = $1", [id]);
 
   return post.rows[0];
