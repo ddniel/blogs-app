@@ -1,5 +1,6 @@
 import { getMostVisitedPosts } from "@/lib/actions";
 import Card from "./ui/card";
+import { IoMdTrendingUp } from "react-icons/io";
 
 interface Post {
   id: number;
@@ -17,7 +18,12 @@ export default async function TrendigPosts() {
   }
   return (
     <div className="mt-10">
-      <h2 className="mb-2">Trending</h2>
+      <h2 className="mb-2">
+        Trending{" "}
+        <span>
+          <IoMdTrendingUp className="inline text-orange-600" />
+        </span>
+      </h2>
       <hr />
       <div className="grid sm:grid-cols-2 gap-5 w-full mt-8">
         {posts.map((post, id) => {

@@ -9,7 +9,7 @@ export default function Page({
 }) {
   return (
     <div className="flex min-h-screen flex-col relative">
-      <section className=" sm:px-20">
+      <section className="px-2 sm:px-20">
         <Posts searchInput={searchParams?.query || ""} />
       </section>
     </div>

@@ -13,7 +13,7 @@ export default async function SideBar() {
   const posts: Post[] = await getLatestPosts();
 
   return (
-    <div className="flex flex-col border border-neutral-200 rounded-xl px-8 py-5 mt-10">
+    <div className="flex flex-col border border-neutral-200 rounded-xl px-8 py-5 mt-10 shadow-md">
       <div>
         <h2 className="text-xl">🎉 Latest</h2>
         <hr className="mt-2 mb-4" />
@@ -44,8 +44,9 @@ export default async function SideBar() {
           </span>
         </div>
       </div>
-      <div className="py-4">
-        <Link href={"/posts/all"}>All Posts</Link>
+      <div className="mt-4">
+        <hr className="mt-2 mb-4" />
+        <Link href={"/posts/all"}>Search All Posts</Link>
       </div>
     </div>
   );

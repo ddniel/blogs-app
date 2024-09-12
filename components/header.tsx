@@ -1,12 +1,12 @@
 "use client";
-
+import styles from "./header.module.css";
 import { signOut } from "next-auth/react";
 import { isLoggedIn } from "../lib/auth";
+import { IoSearch } from "react-icons/io5";
 
 import Link from "next/link";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { Suspense, useEffect, useState } from "react";
-import SearchBar from "./ui/searchBar";
+import { useEffect, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 
 export default function Header() {
@@ -25,9 +25,7 @@ export default function Header() {
 
   return (
     <div
-      className={`${
-        openMenu && "backdrop-blur-xl"
-      } sm:fixed w-full z-10 backdrop-blur-sm text-foreground sm:h-20 border-b-2`}
+      className={`${styles.header} sm:fixed w-full z-10 backdrop-blur-sm text-foreground sm:h-20 shadow-md`}
     >
       <div className="flex justify-between px-10 items-center h-20">
         <Link href="/">
@@ -37,9 +35,6 @@ export default function Header() {
           className="sm:hidden text-3xl cursor-pointer"
           onClick={() => setOpenMenu(!openMenu)}
         />
-        <Suspense>
-          <SearchBar className="hidden" />
-        </Suspense>
 
         <div className="hidden sm:flex gap-5">
           {session && (
@@ -72,9 +67,6 @@ export default function Header() {
           ) : (
             <Link href="/auth/signin">Login</Link>
           )}
-          <Suspense>
-            <SearchBar className="flex" />
-          </Suspense>
           {session && (
             <Link href="/posts/create">
               <button className="px-3 py-1 border border-neutral-200 rounded-xl hover:bg-foreground hover:text-background">
@@ -82,6 +74,9 @@ export default function Header() {
               </button>
             </Link>
           )}
+          <Link href={"/posts/all"}>
+            <IoSearch className="inline" /> Search Posts
+          </Link>
         </div>
       )}
     </div>
