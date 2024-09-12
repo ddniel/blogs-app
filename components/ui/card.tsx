@@ -45,7 +45,7 @@ export default async function Card({
       </span>
       <p>{content.slice(0, 70)}...</p>
 
-      <div className="self-end absolute bottom-6 flex gap-1">
+      <div className="self-end absolute bottom-4 flex gap-1">
         {session && <Delete id={id} />}
 
         {session && (

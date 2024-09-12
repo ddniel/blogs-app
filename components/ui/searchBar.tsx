@@ -23,7 +23,7 @@ export default function SearchBar({ className }: { className?: string }) {
 
   return (
     <div
-      className={`${className} border border-neutral-200 rounded-xl px-2 py-1 sm:flex w-[250px] md:w-[350px] items-center gap-1 sm:ml-8 xl:ml-[200px]`}
+      className={`${className} border border-neutral-200 rounded-xl px-2 py-1 flex sm:w-[250px] md:w-[350px] items-center gap-1 sm:ml-8 xl:ml-[200px]`}
     >
       <IoSearch />
       <input
